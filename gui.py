@@ -24,16 +24,22 @@ class Search_frame():
         self.textEntry = tkinter.Entry(self.top_frame, width = 30)
     #Create an InVar objects to use with the Radiobuttons
         self.radio_var = tkinter.IntVar()
+
         #set the IntVar object to 1
         self.radio_var.set(1)
         #Creat the Radiobuttons widgets in the top_frame
-        self.rb1 = tkinter.Radiobutton(self.mid_frame, text = 'Twitter', variable = self.radio_var, value = 1, command=self.display)
+
+        self.options = {1:"Twitter", 2:"Not Twitter"}
+
+        self.rb1 = tkinter.Radiobutton(self.mid_frame, text = self.options[1], variable = self.radio_var, value = 1, command=self.doThing)
+        self.rb2 = tkinter.Radiobutton(self.mid_frame, text = self.options[2], variable = self.radio_var, value = 2, command=self.doThing)
 
     #Pack the top fram's widget
         self.promptLable.pack(side = 'left')
         self.textEntry.pack(side = 'left')
         #pack the radiobox
         self.rb1.pack(side = 'left')
+        self.rb2.pack()
     #Create the widget for the middle fram
         self.desc_lable = tkinter.Label(self.mid_frame, text = "Displayed Information ")
     #We need a StringVar objects to associate with an output lable. Use the object's set method to store
@@ -67,10 +73,22 @@ class Search_frame():
 
     def doThing(self):
         print('use a better method name')
+        print(self.radio_var.get())
+        print(self.options[self.radio_var.get()])
+
 
     def display(self):
 
+        print(self.radio_var.get())
+
+
+
         info = self.textEntry.get()
+
+        if info is None or len(info) == 0:
+            print("enter a name")
+
+
         output = tweeterInFO.gettingTweetInfo(info)
         #print(output)
 
