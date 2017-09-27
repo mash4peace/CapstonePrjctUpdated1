@@ -1,7 +1,7 @@
 import twitter
 import tweepy
 
-
+#Please feel to use these keys ; I will remove them after presentation
 def gettingTweetInfo(info):
     consumer_key = "XJzeM2VqIUaAcy7QZm4zZNeNI"
     consumer_secret = "upTNX9HA1XBWDDTMemFHBgzmHpxz08zGzVzIT94tmLsPIktmZ6"
@@ -21,8 +21,7 @@ def gettingTweetInfo(info):
     print(name)
     print(screenName)
     print(address)
-    return (name , screenName , address, followers, " of followers")
-
+    return ("Full name" + name + ", screen name " + screenName + ", location" + address + ", ",  followers, ", of followers " )
 
 """"""
 """"
