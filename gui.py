@@ -27,7 +27,7 @@ class Search_frame():
         #set the IntVar object to 1
         self.radio_var.set(1)
         #Creat the Radiobuttons widgets in the top_frame
-        self.rb1 = tkinter.Radiobutton(self.mid_frame, text = 'Twitter', variable = self.radio_var, value = 1)
+        self.rb1 = tkinter.Radiobutton(self.mid_frame, text = 'Twitter', variable = self.radio_var, value = 1, command=self.display)
 
     #Pack the top fram's widget
         self.promptLable.pack(side = 'left')
@@ -65,6 +65,9 @@ class Search_frame():
         tkinter.mainloop()
 
 
+    def doThing(self):
+        print('use a better method name')
+
     def display(self):
 
         info = self.textEntry.get()
@@ -76,4 +79,3 @@ class Search_frame():
 
 
 Search_frame()
-
